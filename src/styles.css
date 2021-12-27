@@ -1,4 +1,133 @@
-.App {
+* {
   font-family: sans-serif;
+  color: rgb(92, 92, 92);
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  transition: all 0.3s;
+}
+
+.app {
+  margin: 5vw 13vw;
+}
+
+.boardList {
+  background-color: white;
+  padding: 10px;
+  border-radius: 3px;
+  box-shadow: 2px 1px 4px gray;
+}
+
+.board {
+  margin: 10px;
+  border-bottom: 1px solid rgb(234, 234, 240);
+  padding: 14px 5px;
+}
+
+.board:last-child {
+  border-bottom: none;
+}
+
+.link {
+  color: rgb(26, 26, 155);
+  font-weight: 100;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-shadow: 1px 0 gray;
+  text-decoration: underline;
+}
+
+h1 {
+  color: black;
+}
+
+.jobdetaidec {
+  box-shadow: 1px 1px 3px gray;
+  padding: 20px;
+  border-radius: 3px;
+  min-height: 50px;
+  font-size: 0.9em;
+  display: flex;
+  align-items: center;
+  line-height: 25px;
+}
+
+.companyLink {
+  margin-top: -14px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.menubox {
+  padding: 20px 0;
+  border-bottom: 1px solid rgb(223, 218, 218);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li:first-child {
+  margin-left: -40px;
+}
+
+.linkcreatenw {
+  margin-right: 10px;
+  cursor: pointer;
+  box-shadow: 0.5px 0.5px 2px gray;
+  padding: 10px;
+  border-radius: 3px;
+  background: white;
+  border: none;
+  text-decoration: none;
+}
+.linkcreatenw:hover {
+  box-shadow: 0px 0px 3px gray;
+}
+.linkcreatenw:hover {
+  text-decoration: underline;
+}
+
+.backlink {
+  margin-top: 15px;
+  display: block;
+  color: blue;
+  font-size: 0.8em;
+  background-color: white;
+  border: 1px solid rgb(233, 228, 220);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.listOfjobincom {
+  font-size: 0.8em;
+  line-height: 20px;
+  background-color: rgb(255, 255, 239);
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 1px 1px 4px rgb(199, 199, 10);
+}
+
+.input {
+  padding: 16px;
+  border: 1px solid transparent;
+  margin: 10px 0;
+  border-radius: 3px;
+  width: 100%;
+  box-shadow: 0px 0 3px #686868;
+  outline: none;
+}
+
+input:focus {
+  box-shadow: 0px 2px 5px #686868;
+}
+
+.btnsp {
+  margin: 50px 20px;
+  display: block;
+  width: 80px;
   text-align: center;
+  font-size: 0.9em;
 }
