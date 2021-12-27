@@ -11,7 +11,6 @@ export default function App() {
     (async () => {
       let response = await GetJobs();
       setListOfJobs(response);
-      console.log("response", response);
     })();
   }, []);
 
