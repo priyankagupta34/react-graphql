@@ -4,9 +4,12 @@ import { GetJobs } from "./services/graphql";
 import NavBar from "./components/navbar";
 import "./styles.css";
 import AppRoutes from "./AppRoutes";
+import { logout } from "./services/nonql";
 
 export default function App() {
   const [listOfJobs, setListOfJobs] = useState([]);
+  const [loggedIn, setloggedIn] = useState(false);
+
   useEffect(() => {
     (async () => {
       let response = await GetJobs();
@@ -14,12 +17,19 @@ export default function App() {
     })();
   }, []);
 
-  function handleLogin() {}
+  function handleLogout() {
+    logout();
+    setloggedIn(false);
+  }
+
+  function handleLogin() {
+    setloggedIn(true);
+  }
   return (
     <div className="app">
       <Router>
         <nav>
-          <NavBar />
+          <NavBar loggedIn={loggedIn} onLogout={handleLogout} />
         </nav>
 
         <section className="section">

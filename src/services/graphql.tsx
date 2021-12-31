@@ -1,11 +1,17 @@
+import { isLoggedIn, getAccessToken } from "./nonql";
+
 const url = "https://gq0fs.sse.codesandbox.io/graphql";
 
 async function graphqlRequests(query: string, variables: object = {}) {
-  const response = await fetch(url, {
+  const request = {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ query, variables })
-  });
+  };
+  if (isLoggedIn()) {
+    request.headers["Authorization"] = `Bearer ${getAccessToken()}`;
+  }
+  const response = await fetch(url, request);
 
   const responseJSN = await response.json();
   if (responseJSN?.errors) {
@@ -15,6 +21,7 @@ async function graphqlRequests(query: string, variables: object = {}) {
       .join("\n");
     throw new Error(errMessage);
   }
+  console.log("response", responseJSN.data);
   return responseJSN.data;
 }
 
@@ -81,16 +88,13 @@ export async function PostNewJob(
   title: string,
   description: string
 ) {
-  const mutation = `mutation Mutation($companyId: ID, $title: String, $description: String) {
-    createJob(companyId: $companyId, 
-      title: $title, 
-      description: $description)
+  const mutation = `
+  mutation Mutation($input: CreateJobField) {
+    createJob(input: $input)
   }`;
 
-  const { createJob } = await graphqlRequests(mutation, {
-    companyId,
-    title,
-    description
-  });
+  const input = { companyId, title, description };
+  const { createJob } = await graphqlRequests(mutation, { input });
+
   return createJob;
 }

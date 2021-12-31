@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PostNewJob } from "../services/graphql";
 
 const JobForm = () => {
   const [title, settitle] = useState<string>("");
   const [description, setdescription] = useState("");
-  const { companyId } = useParams();
   const navigate = useNavigate();
 
   async function handleClick(e: any) {
     e.preventDefault();
-    const id = await PostNewJob(companyId || "", title, description);
+    const id = await PostNewJob(title, description);
     navigate(`/jobs/${id}`, { replace: true });
   }
 

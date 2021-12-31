@@ -11,7 +11,7 @@ const NavBar = (): JSX.Element => (
         </li>
 
         <li>
-          <Link to="/" className="link linkcreatenw">
+          <Link to="/login" className="link linkcreatenw">
             Login
           </Link>
         </li>
